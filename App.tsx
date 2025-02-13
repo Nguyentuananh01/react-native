@@ -1,14 +1,22 @@
 
+import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const [name, setName] = useState<string>("");
+  const [age, setAge] = useState<number>(0);
+  const [person, setPerson] = useState<{
+    name: string;
+    age: number;
+  }>({
+    name: "tuan anh",
+    age: 20
+  });
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.text}>
-          test
-          <Text style={styles.ok}> tuan anh</Text>
-        </Text>
+        <Text style={styles.text}>{name}</Text>
+        <Text style={styles.text}>{JSON.stringify(person)}</Text>
       </View>
       <Text>Hello world tuan anh</Text>
     </View>
@@ -26,7 +34,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    paddingTop: 20,
+    paddingHorizontal: 20
+
   },
 });
